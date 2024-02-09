@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Homepage</a>
+          </li>
+          <li>
+            <a href="/blog">Blog</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>12 Weeks of React (part 1)</h1>
+
+      <time datetime>2024-02-10</time>
+
+      <h2>Intro</h2>
+
+      <p>I want to deepen my knowledge in React.</p>
+
+      <p>
+        This week I started reading the docs, from the very beginning,
+        sequentially. While the basic docs are great for beginners and they
+        sparked some thoughts, I didn't get much value from reading them. Next
+        week I'll go through parts that I want to improve my knowledge on or not
+        familiar with.
+      </p>
+
+      <p>
+        I will be posting my comments, thoughts and ideas that I wrote down
+        about what I read, explored and played with.
+      </p>
+
+      <hr />
+
+      <h2>React is mostly writing JavaScript</h2>
+      <p>
+        <a href="https://react.dev/learn" target="_blank"
+          >The Quick Start section</a
+        >
+        puts an emphasis on the fact that you use regular JavaScript inside
+        React and JSX and includes a lot of reference links to
+        <a href="https://developer.mozilla.org/">MDN</a> and other sources for
+        learning JavaScript.
+      </p>
+      <p>
+        Indeed, the fact that you can use ternary operators, mapping through a
+        list to create a list of elements and in general escape from JSX into
+        JavaScript by using curly braces, gives it a much closer feel to writing
+        regular JavaScript.
+      </p>
+
+      <p>
+        Also, it allows JSX to stay very minimal compared to other templating
+        languages. It doesn't require any special directives like in Angular or
+        Vue. Instead, plain JavaScript can be used.
+      </p>
+
+      <h2>State</h2>
+
+      <p>
+        Try to reduce state as much as possible. When possible, derive
+        information from existing state. This reduces the moving parts in the
+        component and makes it much easier to change, debug and understand.
+      </p>
+
+      <p>
+        When you call the "set" function that is returned from
+        <code>useState</code>, it tells React to start a re-render. This will
+        cause the child components to re-render as well.
+      </p>
+
+      <h2>children type</h2>
+
+      <p>
+        Most of the places that talk about the recommended type for the
+        <code>children</code> prop advice to use <code>React.ReactNode</code>.
+        Generally, this is a good advice, but I personally prefer to use more
+        strict typing and use <code>React.ReactElement</code> when possible. For
+        example, when having a set of layout components which should get another
+        element as <code>children</code>.
+      </p>
+
+      <p>
+        Another reason to why I prefer a more strict approach is because
+        <code>React.ReactNode</code> allows <code>boolean</code>,
+        <code>null</code> and <code>undefined</code>. If you don't have these
+        allowed as children, you reduce the risk of passing them by mistake
+        because of some conditional inside your JSX that might result in an
+        unwanted result.
+      </p>
+
+      <h2>JSX</h2>
+
+      <p>
+        React must return a single wrapping element because under the hood JSX
+        is being transformed into a JavaScript object. And because a React
+        component is a function, and a function can't have multiple returns,
+        React component can't return multiple JSX elements. Instead, it must
+        have one tag or <code>Fragment</code> to wrap them all.
+      </p>
+
+      <p>
+        Because JSX is transformed to JavaScript, and in JavaScript we can't
+        define variables with a hyphen or using reserved words, we can't use
+        props with a hyphen or a reserved words like <code>class</code>. This is
+        why we write <code>onClick</code> or <code>className</code>.
+      </p>
+    </main>
+  </body>
+</html>
