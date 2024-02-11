@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12 Weeks of React (part 2)</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Homepage</a>
+          </li>
+          <li>
+            <a href="/blog">Blog</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>12 Weeks of React (part 2)</h1>
+
+      <time datetime>2024-02-17</time>
+
+      <h2>Intro</h2>
+
+      <p>
+        This week I kept reading the docs sequentially, but skipped the parts
+        that I found basic or am familiar with. As I progressed through the
+        docs, I found more and more interesting bits of information. So I
+        decided not to jump around and keep with the sequential approach.
+      </p>
+
+      <hr />
+
+      <h2>TIL #1</h2>
+
+      <p>
+        It turns out that like DOM, there is also CSSOM, or
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model"
+          target="_blank"
+        >
+          CSS Object Model.
+        </a>
+      </p>
+
+      <p>
+        You probably used it without even knowing about it. For example, it's
+        when you manipulate styles of a DOM element with JavaScript via it's
+        <code>style</code> property.
+      </p>
+
+      <p>
+        But, if you try to read values via <code>style</code>, you won't get any
+        if they were defined with CSS. For this you can use the
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle"
+          target="_blank"
+          >window.getComputedStyle
+        </a>
+        method to get the actual styles of an element.
+      </p>
+
+      <h2>React render tree</h2>
+
+      <p>
+        You won't see any HTML tags in the tree because it is composed only of
+        React components.
+      </p>
+
+      <p>
+        This is indented behavior because React can be ran on multiple
+        platforms, and the HTML tags could be some other platform specific
+        primitives like <code>UIView</code> in iOS.
+      </p>
+
+      <h2>TIL #2</h2>
+
+      <p>
+        If you want to catch an event from a child, even if they stopped
+        propagation, you can append <code>Capture</code> to the event handler.
+      </p>
+
+      <script src="https://gist.github.com/maxvrn/2d322020856e71fc2daca403a18f4a93.js"></script>
+
+      <h2>TIL #3</h2>
+
+      <p>
+        You can use the
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/inset"
+          target="_blank"
+          >inset</a
+        >
+        CSS property as a shorthand for
+        <code>left: 0; right: 0; bottom: 0; top: 0;</code>
+      </p>
+
+      <h2>State</h2>
+
+      <p>Changing local variables won't trigger a re-render.</p>
+
+      <p>
+        Hooks rely on stable call order, this is why you must follow the lint
+        rules for hooks.
+      </p>
+
+      <p>In the following example, A and B will yield a different result</p>
+
+      <script src="https://gist.github.com/maxvrn/da3f80353d0c36c6d5416ac03e24c478.js"></script>
+
+      <p>
+        In A, the state will be incremented only by 1, but in B it will be
+        incremented by 3.
+      </p>
+
+      <p>
+        This is because in A, each call to <code>setCount</code> is using the
+        current <code>count</code> value, so if <code>count === 0</code>, then
+        each call will actually be <code>setCount(0 + 1)</code>.
+      </p>
+
+      <p>
+        In B on the other hand, we ask from React the current state, so in the
+        first call if <code>count === 0</code> we will get <code>c</code> as
+        <code>0</code>, on the second call as <code>1</code> (because we already
+        incremented it once) and so on.
+      </p>
+
+      <h2>Imperative vs Declarative</h2>
+
+      <p>
+        Entering a taxi and telling the driver where to turn on each
+        intersection is imperative. Entering a taxi and telling the driver the
+        destination is declarative.
+      </p>
+    </main>
+  </body>
+</html>
