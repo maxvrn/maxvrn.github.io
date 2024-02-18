@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12 Weeks of React (part 3)</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Homepage</a>
+          </li>
+          <li>
+            <a href="/blog">Blog</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>12 Weeks of React (part 3)</h1>
+
+      <time datetime>2024-02-24</time>
+
+      <h2>TIL #1</h2>
+
+      <p>
+        It turns out that if React renders the same component at the same
+        position, the state will be preserved.
+      </p>
+
+      <script src="https://gist.github.com/maxvrn/ef689bcace2e50cc09a0994d13f4e73b.js"></script>
+
+      <p>
+        In the example above, when <code>isFancy</code> is changed, the Counter
+        component will maintain it's state
+      </p>
+
+      <p>
+        Because it's the same component at the same position, React sees it as
+        the same Counter.
+      </p>
+
+      <p>
+        But, if you do want to render a component at the same position but reset
+        it's state, you can use the <code>key</code> attribute.
+      </p>
+
+      <h2>TIL #2</h2>
+
+      <p>
+        You can use
+        <a
+          href="https://react.dev/reference/react/useImperativeHandle"
+          target="_blank"
+          >useImperativeHandle</a
+        >
+        to you customize the ref exposed when using
+        <a href="https://react.dev/reference/react/forwardRef" target="_blank"
+          >forwardRef</a
+        >.
+      </p>
+
+      <h2>TIL #3</h2>
+
+      <p>
+        Using
+        <a
+          href="https://react.dev/reference/react-dom/flushSync"
+          target="_blank"
+          >flushSync</a
+        >
+        you can force React to update the DOM synchronously.
+      </p>
+
+      <h2>useEffect</h2>
+
+      <p>
+        It's OK to have multiple <code>useEffect</code>s. Each one should be
+        responsible for a single and independent synchronization process.
+      </p>
+    </main>
+  </body>
+</html>
